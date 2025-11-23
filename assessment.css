@@ -253,3 +253,39 @@ button:hover {
 .prev-btn:hover {
   background: #c675b3;
 }
+.extra-inputs {
+  margin-top: 15px;
+  display: flex;
+  gap: 20px;
+}
+
+.extra-inputs label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  color: #fff;
+}
+
+.extra-inputs input {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+  margin-top: 5px;
+}
+.extra-inputs label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: #000; /* Make label text visible */
+    font-weight: 600;
+}
+
+.extra-inputs input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #555; /* visible border */
+    border-radius: 6px;
+    color: #000;            /* visible text color */
+    background-color: #fff;
+}

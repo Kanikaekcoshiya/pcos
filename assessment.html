@@ -11,7 +11,6 @@
 
 <body>
 
-    <!-- Background Blobs -->
     <div class="blob blob1"></div>
     <div class="blob blob2"></div>
 
@@ -133,6 +132,8 @@
                     </div>
                 </div>
 
+                <h3 style="margin-top:15px;">Total Follicle Count: <span id="follicleTotal">0</span></h3>
+
                 <h3 style="margin-top:15px;">Average Follicle Size</h3>
                 <div class="input-inline">
                     <div class="input-group">
@@ -156,10 +157,18 @@
                 <div class="checkbox-grid">
                     <label><input type="checkbox" id="hair_growth"> Hair Growth</label>
                     <label><input type="checkbox" id="skin_dark"> Skin Darkening</label>
-                    <label><input type="checkbox" id="hair_loss"> Hair Loss</label>
                     <label><input type="checkbox" id="pimples"> Pimples</label>
-                    <label><input type="checkbox" id="fast_food"> Fast Food</label>
                     <label><input type="checkbox" id="exercise"> Exercise</label>
+                </div>
+
+                <div class="extra-inputs">
+                    <label>Hair Loss (Yes / No)
+                        <input type="text" id="hairLossInput" placeholder="Yes / No">
+                    </label>
+
+                    <label>Fast Food Consumption (Yes / No)
+                        <input type="text" id="fastFoodInput" placeholder="Yes / No">
+                    </label>
                 </div>
 
                 <button class="prev-btn">← Back</button>
