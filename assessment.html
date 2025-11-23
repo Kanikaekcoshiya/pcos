@@ -19,24 +19,20 @@
 
         <!-- Progress Bar -->
         <div class="progress-wrapper">
-            <div class="progress">
-                <div class="progress-bar" id="progressBar"></div>
-            </div>
+            <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
             <p id="progressText">Step 1 of 5</p>
         </div>
 
-        <!-- FORM BOX -->
         <div class="form-box">
 
-            <!-- STEP 1 : PERSONAL INFO -->
+            <!-- STEP 1 -->
             <section class="step active" id="step1">
-
                 <h2>Personal Information</h2>
 
                 <div class="input-group">
                     <i class="fa-solid fa-user"></i>
                     <input type="number" id="age" required>
-                    <label>Age</label>
+                    <label>Age (years)</label>
                 </div>
 
                 <div class="input-inline">
@@ -60,11 +56,58 @@
                 <button class="next-btn">Next →</button>
             </section>
 
-
-            <!-- STEP 2 : MENSTRUAL HEALTH -->
+            <!-- STEP 2 -->
             <section class="step" id="step2">
+                <h2>Lab Parameters</h2>
 
-                <h2>Menstrual Health</h2>
+                <div class="input-group">
+                    <input type="number" id="AMH">
+                    <label>AMH (ng/mL)</label>
+                </div>
+
+                <div class="input-inline">
+                    <div class="input-group">
+                        <input type="number" id="FSH">
+                        <label>FSH</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="number" id="LH">
+                        <label>LH</label>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <input type="number" id="FSHLH">
+                    <label>FSH / LH Ratio</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="number" id="TSH">
+                    <label>TSH</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="number" id="PRL">
+                    <label>Prolactin (PRL)</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="number" id="VitD3">
+                    <label>Vitamin D3</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="number" id="RBS">
+                    <label>RBS (mg/dL)</label>
+                </div>
+
+                <button class="prev-btn">← Back</button>
+                <button class="next-btn">Next →</button>
+            </section>
+
+            <!-- STEP 3 -->
+            <section class="step" id="step3">
+                <h2>Menstrual & Ultrasound</h2>
 
                 <div class="radio-group">
                     <label><input type="radio" name="cycle" value="Regular"> Regular</label>
@@ -73,15 +116,32 @@
 
                 <div class="hidden extra-fields" id="extraFields">
                     <div class="input-group">
-                        <i class="fa-solid fa-calendar-days"></i>
-                        <input type="number">
-                        <label>Cycle Duration (days)</label>
+                        <input type="number" id="cycle_length">
+                        <label>Cycle Length (days)</label>
                     </div>
+                </div>
 
+                <h3 style="margin-top:20px;">Follicle Count</h3>
+                <div class="input-inline">
                     <div class="input-group">
-                        <i class="fa-solid fa-calendar-minus"></i>
-                        <input type="number">
-                        <label>Gap Between Cycles (days)</label>
+                        <input type="number" id="Follicle_No_L">
+                        <label>Left Ovary</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="number" id="Follicle_No_R">
+                        <label>Right Ovary</label>
+                    </div>
+                </div>
+
+                <h3 style="margin-top:15px;">Average Follicle Size</h3>
+                <div class="input-inline">
+                    <div class="input-group">
+                        <input type="number" id="AvgFsizeL">
+                        <label>Left (mm)</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="number" id="AvgFsizeR">
+                        <label>Right (mm)</label>
                     </div>
                 </div>
 
@@ -89,55 +149,24 @@
                 <button class="next-btn">Next →</button>
             </section>
 
-
-            <!-- STEP 3 : SYMPTOMS -->
-            <section class="step" id="step3">
-
-                <h2>Symptoms</h2>
+            <!-- STEP 4 -->
+            <section class="step" id="step4">
+                <h2>Symptoms & Lifestyle</h2>
 
                 <div class="checkbox-grid">
-                    <label><input type="checkbox"> Acne</label>
-                    <label><input type="checkbox"> Hair Loss</label>
-                    <label><input type="checkbox"> Hair Growth</label>
-                    <label><input type="checkbox"> Fatigue</label>
-                    <label><input type="checkbox"> Mood Swings</label>
-                    <label><input type="checkbox"> Weight Gain</label>
+                    <label><input type="checkbox" id="hair_growth"> Hair Growth</label>
+                    <label><input type="checkbox" id="skin_dark"> Skin Darkening</label>
+                    <label><input type="checkbox" id="hair_loss"> Hair Loss</label>
+                    <label><input type="checkbox" id="pimples"> Pimples</label>
+                    <label><input type="checkbox" id="fast_food"> Fast Food</label>
+                    <label><input type="checkbox" id="exercise"> Exercise</label>
                 </div>
 
                 <button class="prev-btn">← Back</button>
                 <button class="next-btn">Next →</button>
             </section>
 
-
-            <!-- STEP 4 : LIFESTYLE -->
-            <section class="step" id="step4">
-
-                <h2>Lifestyle Details</h2>
-
-                <div class="input-group">
-                    <i class="fa-solid fa-bicycle"></i>
-                    <input type="text" required>
-                    <label>Exercise Frequency</label>
-                </div>
-
-                <div class="input-group">
-                    <i class="fa-solid fa-bowl-food"></i>
-                    <input type="text" required>
-                    <label>Diet Type</label>
-                </div>
-
-                <div class="input-group">
-                    <i class="fa-solid fa-bed"></i>
-                    <input type="number" required>
-                    <label>Sleep Hours</label>
-                </div>
-
-                <button class="prev-btn">← Back</button>
-                <button class="next-btn">Next →</button>
-            </section>
-
-
-            <!-- STEP 5 : UPLOADS -->
+            <!-- STEP 5 -->
             <section class="step" id="step5">
                 <h2>Upload Reports</h2>
 
@@ -154,10 +183,8 @@
             </section>
 
         </div>
-
     </div>
 
-<script src="assessment.js"></script>
-
+    <script src="assessment.js"></script>
 </body>
 </html>

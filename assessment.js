@@ -4,7 +4,6 @@
 
 let currentStep = 1;
 const totalSteps = 5;
-
 const steps = document.querySelectorAll(".step");
 const progressBar = document.getElementById("progressBar");
 const progressText = document.getElementById("progressText");
@@ -35,9 +34,8 @@ showStep(1);
 
 
 /* ======================
-   BMI CALCULATION
+   BMI
 ======================= */
-
 const weightInput = document.getElementById("weight");
 const heightInput = document.getElementById("height");
 const bmiValue = document.getElementById("bmiValue");
@@ -47,8 +45,7 @@ function calculateBMI() {
     let h = parseFloat(heightInput.value) / 100;
 
     if (w > 0 && h > 0) {
-        let bmi = (w / (h * h)).toFixed(1);
-        bmiValue.textContent = bmi;
+        bmiValue.textContent = (w / (h * h)).toFixed(1);
     }
 }
 
@@ -57,32 +54,25 @@ heightInput.addEventListener("input", calculateBMI);
 
 
 /* ======================
-   MENSTRUAL EXTRA FIELDS
+   CYCLE EXTRA FIELD
 ======================= */
-
 const extraFields = document.getElementById("extraFields");
 
 document.querySelectorAll("input[name='cycle']").forEach(radio => {
     radio.addEventListener("change", () => {
-        if (radio.value === "Irregular") {
-            extraFields.classList.remove("hidden");
-        } else {
-            extraFields.classList.add("hidden");
-        }
+        extraFields.classList.toggle("hidden", radio.value !== "Irregular");
     });
 });
 
 
 /* ======================
-   FILE UPLOAD PREVIEW
+   FILE PREVIEW
 ======================= */
-
 const uploadBox = document.getElementById("uploadBox");
 const uploadInput = document.getElementById("uploadInput");
 const previewImg = document.getElementById("previewImg");
 
 uploadBox.addEventListener("click", () => uploadInput.click());
-
 uploadInput.addEventListener("change", () => {
     const file = uploadInput.files[0];
     if (file) {
@@ -93,9 +83,41 @@ uploadInput.addEventListener("change", () => {
 
 
 /* ======================
-   SUBMIT BUTTON
+   SUBMIT
 ======================= */
 
 document.querySelector(".submit-btn").addEventListener("click", () => {
-    alert("Assessment submitted successfully! (UI Demo)");
+    
+    const data = {
+        age: age.value,
+        weight: weight.value,
+        height: height.value,
+        BMI: bmiValue.textContent,
+
+        AMH: AMH.value,
+        FSH: FSH.value,
+        LH: LH.value,
+        ratio: FSHLH.value,
+        TSH: TSH.value,
+        PRL: PRL.value,
+        VitD3: VitD3.value,
+        RBS: RBS.value,
+
+        cycle: document.querySelector("input[name='cycle']:checked")?.value,
+        cycle_length: cycle_length.value,
+        Follicle_Left: Follicle_No_L.value,
+        Follicle_Right: Follicle_No_R.value,
+        size_Left: AvgFsizeL.value,
+        size_Right: AvgFsizeR.value,
+
+        hair_growth: hair_growth.checked,
+        skin_dark: skin_dark.checked,
+        hair_loss: hair_loss.checked,
+        pimples: pimples.checked,
+        fast_food: fast_food.checked,
+        exercise: exercise.checked
+    };
+
+    localStorage.setItem("pcosData", JSON.stringify(data));
+    window.location.href = "result.html";
 });
