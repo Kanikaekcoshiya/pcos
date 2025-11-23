@@ -289,3 +289,21 @@ button:hover {
     color: #000;            /* visible text color */
     background-color: #fff;
 }
+
+/* Blood Group dropdown alignment and styling */
+.input-field select {
+    width: 100%;
+    padding: 14px;
+    margin-top: 6px;
+    border: 2px solid #ff85c2;
+    border-radius: 12px;
+    background-color: white;
+    color: #333;
+    font-size: 16px;
+}
+
+.input-field label {
+    font-size: 17px;
+    color: #d63384;
+    font-weight: 600;
+}

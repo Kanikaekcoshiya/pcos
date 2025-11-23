@@ -143,15 +143,38 @@ document.querySelector(".submit-btn").addEventListener("click", () => {
         return;
     }
 
+
+    // Prevent empty fields (no null values allowed)
+const requiredFields = [
+    age, weight, height, AMH, FSH, LH, TSH, PRL, VitD3, RBS,
+    cycle_length, follicleL, follicleR, AvgFsizeL, AvgFsizeR, bloodGroup
+];
+
+for (let field of requiredFields) {
+    if (!field.value || field.value.trim() === "") {
+        alert("Please fill all fields before submitting.");
+        return;
+    }
+}
+
+// Check cycle radio selected
+if (!document.querySelector("input[name='cycle']:checked")) {
+    alert("Please select Cycle Regularity.");
+    return;
+}
+
+
     const hairLossValue = (hairLossText === "yes") ? 1 : 0;
     const fastFoodValue = (fastFoodText === "yes") ? 1 : 0;
+    const bloodGroup = document.getElementById("bloodGroup").value;
+
 
     const data = {
         age: age.value,
         weight: weight.value,
         height: height.value,
         BMI: bmiValue.textContent,
-
+        blood_group: bloodGroup,
         AMH: AMH.value,
         FSH: FSH.value,
         LH: LH.value,
